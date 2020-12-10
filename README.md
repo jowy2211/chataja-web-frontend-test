@@ -6,7 +6,7 @@ please use this code OTP below
 000000
 ```
 
-## Whitelit User
+## Whitelist User
 please use these list user to login into Chatroom main page
 ```
 1. +62868123456
