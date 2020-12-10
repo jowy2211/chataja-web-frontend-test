@@ -6,6 +6,13 @@ please use this code OTP below
 000000
 ```
 
+## Whitelit User
+please use these list user to login into Chatroom main page
+```
+1. +62868123456
+2. +62812345678
+```
+
 ## Project setup
 ```
 npm install
