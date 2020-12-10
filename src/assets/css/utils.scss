@@ -1,0 +1,71 @@
+$primary: #ff4646;
+$secondary: #F05E23;
+$tosca: #0AC4AC;
+$orange: #ff7103;
+$red: #db2323;
+$green: #4eb858;
+$blue: #298BF0;
+$purple: #660099;
+$softgrey: #D9D9D9;
+$grey: #9E9E9E;
+$darkgrey: #434343;
+
+form {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+form.errors {
+  input[type='text'] {
+    border-radius: 3px;
+    --focus: 2px $primary;
+    border: 1px solid $primary;
+  }
+}
+
+form div {
+  margin: 0 20px;
+  padding: 5px;
+}
+
+button,
+input {
+  padding: 1rem;
+  outline: none;
+}
+
+input:focus,
+textarea:focus {
+  outline: none;
+}
+
+input,
+button {
+  width: auto;
+}
+
+button:hover, button:focus {
+  outline: 0;
+  background-color: rgba($primary, 0.9);
+}
+
+input[type='text'] {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  outline: none;
+  border: 1px solid $grey;
+  --focus: 2px rgba($grey, .25);
+}
+
+ul {
+  margin: auto;
+  padding: 0;
+  list-style: none;
+  width: 100%;
+  max-width: 320px;
+  li {
+    margin: auto;
+    position: relative;
+  }
+}

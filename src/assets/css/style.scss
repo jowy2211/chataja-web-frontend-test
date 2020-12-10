@@ -1,0 +1,338 @@
+@import './utils.scss';
+
+body {
+  font-family: -apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  background-color: rgb($softgrey, .3);
+  height: 100vh;
+  margin: 0 auto;
+}
+
+*, ::after, ::before {
+  box-sizing: border-box;
+}
+
+.content {
+  height: 98vh;
+  width: auto;
+  margin: auto;
+  padding: 5px;
+  --width-mobile: 12;
+  --width-tablet: 6;
+  --width-desktop: 12;
+}
+
+.row {
+  display: flex;
+  max-width: 1140px;
+  margin: 0px auto;
+  padding: 5px;
+}
+
+.col {
+  background-color: pink;
+  border: LavenderBlush 2px solid;
+  border-radius: 8px;
+  padding: 16px;
+}
+
+$columns: 12; // number of columns in the grid system
+
+@for $width from 1 through $columns {
+  .col-#{$width} {
+    flex-basis: $width / $columns * 100%;
+  }  
+}
+
+.column {
+  --columns: $columns;
+  --width: var(--width-mobile, 0);
+
+  flex-basis: calc(var(--width) / var(--columns) * 100%);
+}
+
+@media (min-width: 576px) {
+  .column {
+    --width-tablet: var(--width-mobile);
+    --width: var(--width-tablet);
+  }
+}
+
+@media (min-width: 768px) {
+  .column {
+    --width-desktop: var(--width-tablet);
+    --width: var(--width-desktop);
+  }
+}
+
+.fill-height {
+  height: 100%;
+}
+
+.card {
+  max-height: 100% !important;
+  max-width: 100%;
+  position: relative;
+  background-color: white;
+  border-radius: 5px;
+  margin: 0 5px;
+  padding: 16px;
+  overflow: hidden;
+}
+
+.card-title {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+}
+
+.card-title div {
+  padding: 0px 0px 10px 0px;
+  margin: auto;
+}
+
+.card.bordered {
+  border: 1px solid $grey;
+}
+
+.card.no-background {
+  background-color: transparent;
+}
+
+.input-field {
+  min-width: 200px;
+  margin: 0;
+  padding: 7px 7px;
+  border-radius: 3px;
+}
+
+.input-field-otp {
+  min-width: 200px;
+  margin: 0;
+  padding: 7px 7px;
+  border-radius: 3px;
+}
+
+input.input-field-otp {
+  text-align: center;
+}
+
+.input-field-otp::-webkit-input-placeholder {
+  text-align: center;
+}
+
+.input-field-otp::-moz-placeholder { /* Firefox 18- */
+  text-align: center;  
+}
+
+.input-field-otp:-ms-input-placeholder {  
+  text-align: center; 
+}
+
+.text-otp {
+  font-size: 10px;
+  text-align: center;
+  color: $primary;
+  cursor: pointer;
+}
+
+.btn {
+  min-width: 200px;
+  padding: 7px;
+  border: 1px #fff;
+  border-radius: 3px;
+  background-color: $primary;
+  color: $softgrey;
+}
+
+.has-error {
+  background-color: rgb($primary, .1);
+}
+
+.card .list {
+  height: 90vh !important;
+}
+
+.list {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  margin: 0;
+  padding: 0;
+}
+
+.list-item {
+  margin: 2px 0;
+  padding: 5px;
+  overflow-y: auto;
+  overflow-x: hidden;
+}
+
+.list-item.position-end {
+  bottom: 15px;
+  position: absolute;
+}
+
+.icon {
+  color: $darkgrey;
+  border-radius: 50%;
+  margin: auto;
+  cursor: pointer;
+}
+
+.icon.active {
+  color: rgb($primary, .9);
+}
+
+.icon.power:hover {
+  color: rgb($primary, .9);
+}
+
+.contacts {
+  display: flex;
+  flex-direction: row;
+}
+.contacts .avatar {
+  width: 40px;
+  height: 40px;
+  background-color: $softgrey;
+  border-radius: 50%;
+}
+.avatar img {
+  border-radius: 50%;
+}
+
+.contacts .title {
+  margin: auto 10px;
+}
+
+.header-chatroom {
+  top: 0;
+  left: 0;
+  width: 100%;
+  min-height: 80px;
+  border-bottom: 1px solid rgb($darkgrey, .5);
+  color: $darkgrey;
+  position: absolute;
+}
+
+.header-chatroom .contacts {
+  margin: 10px;
+  padding: 5px;
+}
+
+.footer-chatroom {
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  min-height: 50px;
+  border-top: 1px solid rgb($darkgrey, .5);
+  color: $darkgrey;
+  background-color: #fff;
+}
+
+.footer-chatroom .field-chat {
+  height: 38px;
+  margin: 10px 20px;
+  width: 85%;
+  border-radius: 40px;
+  display: inline-block;
+}
+
+.footer-chatroom .btn-send {
+  margin: 10px auto;
+  color: $blue;
+  cursor: pointer;
+  display: inline-block;
+  position: absolute;
+}
+
+.list-item .footer-chatroom {
+  margin: 0px;
+  padding: 0px;
+  bottom: 0;
+  position: absolute;
+}
+
+.list-item.chatroom {
+  top: auto;
+  bottom: auto;
+  margin-top: 60px;
+  margin-bottom: 40px;
+  margin-left: -20px;
+  margin-right: -20px;
+  padding: 0 5px;
+  overflow-y: auto;
+}
+
+.chats {
+  min-width: 25%;
+  max-width: 100%;
+  max-height: 100%;
+  padding: 5px;
+  margin: auto;
+}
+
+.chats::after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+.chats .sender {
+  margin: auto;
+  float: right;
+  text-align: right;
+  max-width: 80%;
+  min-height: 50px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-top-left-radius: 10px;
+  border: 1px solid $softgrey;
+  background-color: $blue;
+  color: #fff;
+}
+
+.chats .receive {
+  margin: auto;
+  float: left;
+  text-align: left;
+  max-width: 80%;
+  min-height: 50px;
+  border-bottom-right-radius: 10px;
+  border-bottom-left-radius: 10px;
+  border-top-right-radius: 10px;
+  border: 1px solid $softgrey;
+  background-color: $softgrey;
+  color: $darkgrey;
+}
+
+.sender .time,
+.receive .time,
+.sender .name,
+.receive .name {
+  font-size: 11px;
+  margin: 0px 20px 5px 20px;
+  padding: 0px 5px 0px 5px;
+}
+
+.sender .name,
+.sender .time {
+  text-align: right;
+  color: rgb(255, 255, 255, .5);
+}
+
+.receive .name,
+.receive .time {
+  text-align: left;
+  color: rgb(0, 0, 0, .5);
+}
+
+.receive .text p,
+.sender .text p{
+  padding: 5px 20px 0px 20px;
+  font-size: 12px;
+  margin: auto;
+  line-break: auto;
+  line-height: 20px;
+}
